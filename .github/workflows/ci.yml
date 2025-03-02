@@ -3,10 +3,10 @@ name: CI - Pruebas Automáticas
 on:
   push:  
     branches:
-      - main  # Ejecutar las pruebas cada vez que se haga push a la rama "main"
+      - master  # Ejecutar las pruebas cada vez que se haga push a la rama "master"
   pull_request:
     branches:
-      - main  # También ejecutarlas en cada pull request a "main"
+      - master  # También ejecutarlas en cada pull request a "master"
 
 jobs:
   test:  # Nombre del trabajo
