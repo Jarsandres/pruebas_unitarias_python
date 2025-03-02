@@ -1,0 +1,30 @@
+name: CI - Pruebas Automáticas
+
+on:
+  push:  
+    branches:
+      - main  # Ejecutar las pruebas cada vez que se haga push a la rama "main"
+  pull_request:
+    branches:
+      - main  # También ejecutarlas en cada pull request a "main"
+
+jobs:
+  test:  # Nombre del trabajo
+    runs-on: ubuntu-latest  # Usaremos una máquina virtual con Ubuntu
+
+    steps:
+      - name: Checkout del código
+        uses: actions/checkout@v3  # Descarga el código del repositorio
+
+      - name: Configurar Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: '3.x'  # Configura la versión de Python
+
+      - name: Instalar dependencias
+        run: |
+          python -m pip install --upgrade pip
+          pip install pytest  # Instala pytest para ejecutar las pruebas
+
+      - name: Ejecutar pruebas con pytest
+        run: pytest -v  # Ejecuta todas las pruebas del repositorio
