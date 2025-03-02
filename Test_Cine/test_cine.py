@@ -21,3 +21,4 @@ def test_compra_cero():
     resultado = pelicula.vender_entradas(0)
     assert resultado == "Has comprado 0 entradas para Test Movie. Total: $0"
     assert pelicula.asientos_disponibles == 10  # No debería cambiar
+
